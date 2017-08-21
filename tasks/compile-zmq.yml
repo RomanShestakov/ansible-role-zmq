@@ -11,9 +11,9 @@
   file: path="{{ zmq_build_dir }}" state=directory
   when: zmq_downloaded.changed
 
-- name: ZMQ | autogen.sh
+- name: ZMQ | cmake
   become: true
-  shell: chdir={{zmq_build_dir}} {{zmq_build_dir}}/autogen.sh && {{zmq_build_dir}}/configure
+  command: chdir="{{ zmq_build_dir }}" cmake "{{ zmq_tmp }}"
   when: zmq_downloaded.changed
 
 - name: ZMQ | make
