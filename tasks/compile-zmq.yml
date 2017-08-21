@@ -13,7 +13,7 @@
 
 - name: ZMQ | cmake
   become: true
-  command: chdir="{{ zmq_build_dir }}" cmake "{{ zmq_tmp }}"
+  command: chdir={{ zmq_build_dir }} cmake -DCMAKE_INSTALL_PREFIX={{ zmq_install_dir }} {{ zmq_tmp }}
   when: zmq_downloaded.changed
 
 - name: ZMQ | make
