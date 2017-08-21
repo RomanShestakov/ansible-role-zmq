@@ -1,0 +1,7 @@
+# file: ansible-role-zmq/defaults/main.yml
+
+zmq_repo_url: https://github.com/zeromq/libzmq
+zmq_version: v4.2.2
+zmq_tmp: "/tmp/zmq"
+zmq_build_dir: /tmp/zmq-{{zmq_version}}-build
+zmq_install_dir: /opt/zmq-{{zmq_version}}
