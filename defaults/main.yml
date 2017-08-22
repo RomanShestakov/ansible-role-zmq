@@ -6,7 +6,7 @@ zmq_tmp: /tmp/zmq
 zmq_build_dir: /tmp/zmq-{{zmq_version}}-build
 zmq_install_dir: /opt/zmq-{{zmq_version}}
 cppzmq_repo_url: https://github.com/zeromq/cppzmq.git
-cppzmq_version: {{zmq_version}}
+cppzmq_version: "{{zmq_version}}"
 cppzmq_tmp: /tmp/cppzmq
 cppzmq_build_dir: /tmp/cppzmq-{{cppzmq_version}}-build
 cppzmq_install_dir: /opt/zmq-{{cppzmq_version}}
