@@ -13,7 +13,7 @@
 
 - name: CPPZMQ | cmake
   become: true
-  command: chdir={{ cppzmq_build_dir }} cmake -DCMAKE_INSTALL_PREFIX={{ cppzmq_install_dir }} {{ cppzmq_tmp }}
+  command: chdir={{ cppzmq_build_dir }} cmake {{ cppzmq_tmp }}
   when: cppzmq_downloaded.changed
 
 - name: CPPZMQ | make
