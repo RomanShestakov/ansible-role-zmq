@@ -14,5 +14,4 @@ galaxy_info:
   - system
 
 dependencies:
-  - {role: ANXS.build-essential, tags: build-essential }
   - {role: geerlingguy.git, tags: git }
