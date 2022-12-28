@@ -1,9 +1,15 @@
 # file: ansible-role-zmq/tasks/source.yml
 
+- name: ZMQ | check if ZMQ is already installed
+  stat:
+    path: "{{ zmq_install_dir }}/include/zmqpp/zmqpp.hpp"
+  register: zmq_exists
+
 - name: ZMQ | get from git repository
   git: repo="{{ zmq_repo_url }}"
        dest="{{ zmq_tmp }}"
        version="{{ zmq_version }}"
+  when: not zmq_exists.stat.exists
   register: zmq_downloaded
 
 - name: ZMQ | Make build folder

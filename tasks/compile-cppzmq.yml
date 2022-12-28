@@ -1,9 +1,15 @@
 # file: ansible-role-zmq/tasks/compile-cppzmq.yml
 
+- name: CPPZMQ | check if CPPZMQ is already installed
+  stat:
+    path: "{{ cppzmq_install_dir }}/include/zmq.hpp"
+  register: cppzmq_exists
+
 - name: CPPZMQ | get from git repository
   git: repo="{{ cppzmq_repo_url }}"
        dest="{{ cppzmq_tmp }}"
        version="{{ cppzmq_version }}"
+  when: not cppzmq_exists.stat.exists
   register: cppzmq_downloaded
 
 - name: CPPZMQ | Make build folder
