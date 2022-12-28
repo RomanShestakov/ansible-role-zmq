@@ -25,3 +25,17 @@
   become: true
   command: chdir="{{ cppzmq_build_dir }}" make install
   when: cppzmq_downloaded.changed
+
+- name: CPPZMQ | cleanup build dir
+  become: true
+  file:
+    path: "{{ cppzmq_build_dir }}"
+    state: absent
+  when: cppzmq_downloaded.changed
+
+- name: CPPZMQ | cleanup tmp dir
+  become: true
+  file:
+    path: "{{ cppzmq_tmp }}"
+    state: absent
+  when: cppzmq_downloaded.changed
