@@ -2,7 +2,7 @@
 
 - name: ZMQ | check if ZMQ is already installed
   stat:
-    path: "{{ zmq_install_dir }}/include/zmqpp/zmqpp.hpp"
+    path: "{{ zmq_install_dir }}/include/zmq.hpp"
   register: zmq_exists
 
 - name: ZMQ | get from git repository

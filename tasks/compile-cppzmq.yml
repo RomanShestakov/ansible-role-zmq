@@ -2,7 +2,7 @@
 
 - name: CPPZMQ | check if CPPZMQ is already installed
   stat:
-    path: "{{ cppzmq_install_dir }}/include/zmq.hpp"
+    path: "{{ cppzmq_install_dir }}/include/zmq_addon.hpp"
   register: cppzmq_exists
 
 - name: CPPZMQ | get from git repository
